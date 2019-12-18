@@ -98,7 +98,18 @@ services:
       KONGA_SEED_USER_DATA_SOURCE_FILE: /app/user_seed.js
       NODE_ENV: production
     restart: on-failure
-
+  user:
+    build: ./user
+    # ports:
+    # - "5000:5000"
+  admin:
+    build: ./admin
+    # ports:
+    # - "5003:5003"
+  provider:
+    build: ./provider
+    # ports:
+    # - "5002:5002"
 volumes:
   kong_data:
   konga_data:

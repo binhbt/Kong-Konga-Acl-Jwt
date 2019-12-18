@@ -1,5 +1,17 @@
 ###Secure request api with kong - acl - jwt
 
+//Create service
+ curl -i -X POST \
+  --url http://localhost:8001/services/ \
+  --data 'name=example-service' \
+  --data 'host=jsonplaceholder.typicode.com'
+//Add route
+curl -i -X POST \
+  --url http://localhost:8001/services/example-service/routes \
+  --data 'hosts[]=example.com'\
+  --data 'paths[]=/fake-api '
+
+
 curl -X POST http://localhost:8001/services/example-service/plugins \
     --data "name=jwt" 
 
